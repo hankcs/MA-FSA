@@ -8,20 +8,26 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
 import java.util.List;
 
-public class Main {
+public class Main
+{
 
-    public static void main(String[] args) {
-        try {
+    public static void main(String[] args)
+    {
+        try
+        {
 
             URL url = Main.class.getClassLoader().getResource("wordlist.txt");
             URI uri = null;
 
-            try {
+            try
+            {
                 uri = url.toURI();
             }
-            catch(URISyntaxException ex){
+            catch (URISyntaxException ex)
+            {
                 ex.printStackTrace();
             }
 
@@ -48,12 +54,14 @@ public class Main {
             stopTime = System.currentTimeMillis();
             duration = stopTime - startTime;
 
-            for(String s : foundWords)
+            for (String s : foundWords)
                 System.out.println(s);
 
             System.out.println("Searched prefix found " + foundWords.size() + " words in: " + duration + " ms");
 
-        } catch (IOException e) {
+        }
+        catch (IOException e)
+        {
             e.printStackTrace();
         }
     }
